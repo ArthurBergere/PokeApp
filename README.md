@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# PokeApp
-=======
 # PokeApp
 
 ## ✨ Projet React + TypeScript + Vite
@@ -57,15 +54,57 @@ npm run dev
 ```
 PokeApp/
 │── src/
-│   ├── components/  # Atomic Design (Atoms, Molecules, Organisms)
-│   ├── pages/       # Pages principales (Home, Details)
-│   ├── contexts/    # Context API
-│   ├── hooks/       # Custom hooks
-│   ├── services/    # Gestion des API
-│   ├── translations/ # i18n fichiers JSON
-│   ├── styles/      # Styles globaux
-│   ├── App.tsx
-│   ├── main.tsx
+├── src/
+│   ├── api/
+│   │   └── pokeApi.ts          // Fonctions pour interagir avec la PokéAPI (gestion des appels HTTP, pagination, etc.)
+│   │
+│   ├── assets/                 // Ressources statiques (images, icônes, fonts…)
+│   │   ├── images/
+│   │   └── styles/             // Feuilles de style globales ou variables SCSS, etc.
+│   │
+│   ├── components/             // Composants UI, organisés par Atomic Design
+│   │   ├── atoms/              // Composants les plus basiques (boutons, inputs, labels…)
+│   │   │   ├── Button.tsx
+│   │   │   └── Input.tsx
+│   │   │
+│   │   ├── molecules/          // Combinaisons d’atomes (ex : carte d’un Pokémon)
+│   │   │   └── PokemonCard.tsx
+│   │   │
+│   │   ├── organisms/          // Composants plus complexes, souvent des sections entières (ex : liste paginée de Pokémon)
+│   │   │   └── PokemonList.tsx
+│   │   │
+│   │   └── templates/          // Mises en page réutilisables qui encadrent des pages complètes
+│   │       └── MainLayout.tsx
+│   │
+│   ├── contexts/               // Contexts React pour partager des données globales
+│   │   ├── LocaleContext.tsx   // Pour gérer la langue (avec react-i18next ou custom)
+│   │   └── AppContext.tsx      // Autres contextes (ex : thème ou état global)
+│   │
+│   ├── hooks/                  // Hooks personnalisés pour la logique métier (ex : usePokemon pour gérer l’appel à la PokéAPI)
+│   │   └── usePokemon.ts
+│   │
+│   ├── i18n/                   // Configuration et fichiers de traduction
+│   │   ├── index.ts            // Initialisation de react-i18next
+│   │   └── locales/            
+│   │       ├── en.json         // Traductions en anglais
+│   │       └── fr.json         // Traductions en français
+│   │
+│   ├── pages/                  // Pages principales, chaque membre peut y développer sa propre page
+│   │   ├── Home.tsx            // Page d’accueil avec liste et recherche
+│   │   └── PokemonDetail.tsx   // Page détaillée d’un Pokémon
+│   │
+│   ├── routes/                 // Définition du routage (avec React Router ou TanStack Router)
+│   │   └── AppRoutes.tsx
+│   │
+│   ├── services/               // Services métiers et logique de gestion (ex : pokemonService.ts pour orchestrer les appels API et le traitement)
+│   │   └── pokemonService.ts
+│   │
+│   ├── utils/                  // Fonctions utilitaires et helpers
+│   │   └── helpers.ts
+│   │
+│   ├── App.tsx                 // Composant racine qui inclut les routes, les providers (context, i18n, etc.)
+│   └── main.tsx                // Point d’entrée de l’application (injection dans index.html via Vite)
+│
 │── public/
 │── package.json
 │── vite.config.ts

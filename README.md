@@ -128,4 +128,4 @@ Ce projet est open-source et sous licence MIT.
 
 💪 **Prêts à capturer tous les Pokémons ?** Démarrez l'application et amusez-vous ! 🌟
 
->>>>>>> 5be012f (Initial commit)
+

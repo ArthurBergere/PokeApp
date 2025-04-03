@@ -2,7 +2,7 @@
 
 ## ✨ Projet React + TypeScript + Vite
 
-PokeApp est une application web permettant d'afficher une liste de Pokémons avec pagination, recherche et affichage des détails d'un Pokémon en particulier.
+PokeApp est une application web développée avec React et Vite, permettant d'afficher une liste de Pokémon avec pagination, recherche dynamique et affichage des détails de chaque Pokémon. L'interface est disponible en français et en anglais, avec un changement de langue instantané grâce à react-i18next. La navigation est assurée par React Router, et la gestion du state global est centralisée via useContext. Conçue avec React/vite et une architecture basée sur Atomic Design.
 
 ---
 

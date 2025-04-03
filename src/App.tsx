@@ -1,4 +1,5 @@
 import './App.css';
+import Button from './components/atoms/Button';
 
 function App() {
   return (
@@ -15,6 +16,15 @@ function App() {
       <div className="mt-8">
         <p className="text-red-500 font-bold text-xl">Alertes Pokéball !</p>
       </div>
+      <Button variant="secondary" onClick={() => alert("Secondaire !")}>
+          Atome bouton
+      </Button>
+      <Button variant="primary" onClick={() => alert("Secondaire !")}>
+          Atome primary
+      </Button>
+      <Button variant="outline" onClick={() => alert("Secondaire !")}>
+          Atome outline
+      </Button>
     </div>
   );
 }

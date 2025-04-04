@@ -1,6 +1,10 @@
+import { Search } from "lucide-react";
 import "./App.css";
 import Badge from "./components/atoms/Badge";
 import Button from "./components/atoms/Button";
+import Input from "./components/atoms/Input";
+import Text from "./components/atoms/Text";
+import "./i18n";
 
 function App() {
   const pokemonTypes = ["fire", "flying"];
@@ -50,7 +54,31 @@ function App() {
           <Badge variant="level" value={pokemonLevel} />
           <Badge variant="status" value={pokemonStatus} />
         </div>
+
+
+        <h2 className="text-lg font-bold mb-2">Exemple Atome Input</h2>
+
+          {/* Champ normal */}
+          <Input variant="text" tPlaceholder="form.username" />
+
+          {/* Champ de mot de passe avec toggle */}
+          <Input variant="password" tPlaceholder="form.password" error="form.passwordError" />
+
+          {/* Champ de recherche avec icône à gauche */}
+          <Input
+            variant="search"
+            tPlaceholder="form.search"
+            icon={<Search size={18} />}
+            iconPosition="left"
+          />
+           <Text variant="h1" tKey="titles.welcome" size="2xl" bold />
+          <Text variant="h2" size="xl" color="primary">Titre secondaire</Text>
+          <Text variant="p" tKey="descriptions.home" italic />
+          <Text variant="span" color="gray" size="sm">Mini info</Text>
       </div>
+
+
+       
     </div>
   );
 }

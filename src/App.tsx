@@ -4,6 +4,7 @@ import Badge from "./components/atoms/Badge";
 import Button from "./components/atoms/Button";
 import Input from "./components/atoms/Input";
 import Text from "./components/atoms/Text";
+import Image from "./components/atoms/Image";
 import "./i18n";
 
 function App() {
@@ -75,7 +76,19 @@ function App() {
           <Text variant="h2" size="xl" color="primary">Titre secondaire</Text>
           <Text variant="p" tKey="descriptions.home" italic />
           <Text variant="span" color="gray" size="sm">Mini info</Text>
-      </div>
+
+        <Image
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+          alt="Pikachu"
+          size="medium"
+        />
+        <Text variant="span" color="gray" size="sm">Image not found : </Text>
+        <Image
+          src="https://url-invalide"
+          alt="Invalide"
+          size="small"
+        />
+        </div>
 
 
        

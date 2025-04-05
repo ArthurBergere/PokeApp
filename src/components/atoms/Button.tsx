@@ -9,6 +9,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   onClick,
   children,
+  className
 }) => {
   const { t } = useTranslation();
 
@@ -25,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={clsx(baseStyles, variantStyles[variant], disabled && disabledStyles)}
+      className={clsx(baseStyles, variantStyles[variant], disabled && disabledStyles,className)}
       onClick={onClick}
       disabled={disabled}
     >

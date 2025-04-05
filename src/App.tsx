@@ -6,6 +6,7 @@ import Input from "./components/atoms/Input";
 import Text from "./components/atoms/Text";
 import Image from "./components/atoms/Image";
 import "./i18n";
+import PokemonCard from "./components/molecules/PokemonCard";
 
 function App() {
   const pokemonTypes = ["fire", "flying"];
@@ -87,6 +88,20 @@ function App() {
           src="https://url-invalide"
           alt="Invalide"
           size="small"
+        />
+
+
+
+      <PokemonCard
+          name="Pikachu"
+          image="/path/to/pikachu.png"
+          types={["Electric"]}
+          stats={{
+            hp: 35,
+            attack: 55, 
+            defense: 40,
+            speed: 90
+          }}
         />
         </div>
 

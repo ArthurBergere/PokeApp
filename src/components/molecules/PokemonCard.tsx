@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "../atoms/Image";
 import Text from "../atoms/Text";
-import clsx from "clsx";
+import Badge from "../atoms/Badge";
+import StatLine from "../atoms/StatLine";
 
 type PokemonCardProps = {
   name: string;
   image: string;
-  types: string[]; // Un ou deux types
+  types: string[]; 
   stats: {
     hp: number;
     attack: number;
@@ -16,21 +17,6 @@ type PokemonCardProps = {
   onViewDetails?: () => void;
 };
 
-const typeStyleMap: Record<string, string> = {
-  fire: "bg-red-500",
-  water: "bg-blue-400",
-  grass: "bg-green-400",
-  electric: "bg-yellow-400 text-black",
-  psychic: "bg-pink-400",
-  normal: "bg-gray-400",
-  ghost: "bg-purple-500",
-  dragon: "bg-indigo-500",
-  fairy: "bg-pink-300",
-  bug: "bg-lime-400",
-  fighting: "bg-orange-500",
-  // fallback
-  default: "bg-gray-400",
-};
 
 const PokemonCard: React.FC<PokemonCardProps> = ({
   name,
@@ -51,43 +37,24 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
         {name}
       </Text>
       
-      {/* Type - centered */}
-      <div className="flex justify-center mb-3">
-        {types.map((type) => (
-          <div 
-            key={type} 
-            className={clsx(
-              "px-4 py-1 rounded-full font-semibold",
-              typeStyleMap[type.toLowerCase()]
-            )}
-          >
-            {type}
-          </div>
-        ))}
-      </div>
+      <div className="flex justify-center gap-2 mb-2">
+      {types.map((type) => (
+        <Badge key={type} variant="type" type={type} value={type} />
+      ))}
+    </div>
+
       
       {/* Divider */}
       <div className="border-t border-gray-700 my-2"></div>
       
       {/* Stats */}
-      <div className="text-white">
-        <div className="flex justify-between mb-1">
-          <span>Hp</span>
-          <span className="text-cyan-400">{stats.hp}</span>
-        </div>
-        <div className="flex justify-between mb-1">
-          <span>Attack</span>
-          <span className="text-cyan-400">{stats.attack}</span>
-        </div>
-        <div className="flex justify-between mb-1">
-          <span>Defense</span>
-          <span className="text-cyan-400">{stats.defense}</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Speed</span>
-          <span className="text-cyan-400">{stats.speed}</span>
-        </div>
+      <div>
+        <StatLine label="HP" value={stats.hp} />
+        <StatLine label="Attack" value={stats.attack} />
+        <StatLine label="Defense" value={stats.defense} />
+        <StatLine label="Speed" value={stats.speed} />
       </div>
+
     </div>
   );
 };

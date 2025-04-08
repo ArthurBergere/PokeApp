@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import i18n from "../../i18n";
+import { t } from "i18next";
+import Button from "../atoms/Button";
 
 const navLinks = [
   { label: "Accueil", to: "/" },
@@ -12,7 +15,10 @@ const Navbar: React.FC = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
-
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === "fr" ? "en" : "fr"; 
+    i18n.changeLanguage(newLanguage);
+  };
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -28,15 +34,21 @@ const Navbar: React.FC = () => {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `text-white hover:text-cyan-400 transition-colors duration-200 ${
-                  isActive ? "border-b-2 border-cyan-400 pb-1" : ""
-                }`
+                `text-white hover:text-cyan-400 transition-colors duration-200 ${isActive ? "border-b-2 border-cyan-400 pb-1" : ""}`
               }
             >
-              {link.label}
+              {t(link.label)} {/* Utilisation de la traduction */}
             </NavLink>
           ))}
         </div>
+
+        {/* Lang Switch Button */}
+        <Button
+          onClick={toggleLanguage}
+          className="text-white hover:text-cyan-400 transition-colors duration-200"
+        >
+          {t("langSwitch")} 
+        </Button>
 
         {/* Burger Menu */}
         <div className="md:hidden">
@@ -55,12 +67,10 @@ const Navbar: React.FC = () => {
               to={link.to}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `text-white hover:text-cyan-400 transition-colors ${
-                  isActive ? "font-bold" : ""
-                }`
+                `text-white hover:text-cyan-400 transition-colors ${isActive ? "font-bold" : ""}`
               }
             >
-              {link.label}
+              {t(link.label)} {/* Utilisation de la traduction */}
             </NavLink>
           ))}
         </div>

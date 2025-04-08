@@ -1,14 +1,15 @@
 {
-    "form": {
-      "username": "Username",
-      "password": "Password",
-      "search": "Search...",
-      "passwordError": "Password too short"
-    },
-    "titles": {
-          "welcome": "Welcome to PokeApp"
-        },
-        "descriptions": {
-          "home": "Catch them all with a quick search!"
-  }
+  "form": {
+    "username": "Username",
+    "password": "Password",
+    "search": "Search...",
+    "passwordError": "Password too short"
+  },
+  "titles": {
+    "welcome": "Welcome to PokeApp"
+  },
+  "descriptions": {
+    "home": "Catch them all with a quick search!"
+  },
+  "langSwitch": "Switch language"
 }

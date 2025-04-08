@@ -94,7 +94,7 @@ PokeApp/
 │   │   ├── Home.tsx            // Page d’accueil avec liste et recherche
 │   │   └── PokemonDetail.tsx   // Page détaillée d’un Pokémon
 │   │
-│   ├── routes/                 // Définition du routage (avec React Router ou TanStack Router)
+│   ├── routes/                 // Définition du routage (avec React Router)
 │   │   └── AppRoutes.tsx
 │   │
 │   ├── services/               // Services métiers et logique de gestion (ex : pokemonService.ts pour orchestrer les appels API et le traitement)

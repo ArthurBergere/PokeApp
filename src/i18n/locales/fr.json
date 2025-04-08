@@ -1,16 +1,15 @@
 {
-    "form": {
-      "username": "Nom d'utilisateur",
-      "password": "Mot de passe",
-      "search": "Rechercher...",
-      "passwordError": "Mot de passe trop court"
-    },
-    "titles": {
-        "welcome": "Bienvenue sur PokeApp"
-    },
-    "descriptions": {
-        "home": "Attrapez-les tous avec une recherche rapide !"
-    }
-      
-  }
-  
+  "form": {
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "search": "Rechercher...",
+    "passwordError": "Mot de passe trop court"
+  },
+  "titles": {
+    "welcome": "Bienvenue sur PokeApp"
+  },
+  "descriptions": {
+    "home": "Attrapez-les tous avec une recherche rapide !"
+  },
+  "langSwitch": "Changer de langue"
+}

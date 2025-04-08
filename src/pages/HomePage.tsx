@@ -9,7 +9,10 @@ import Image from "../components/atoms/Image";
 import PokemonCard from "../components/molecules/PokemonCard";
 import { usePokemons } from "../hooks/usePokemon";
 import { mapPokemonToCardProps } from "../utils/pokemonHelpers";
+import { useTranslation } from "react-i18next";
 const HomePage = () => {
+    const { t } = useTranslation();
+
     const { pokemons, loading, error, refresh } = usePokemons({ limit: 3 });
     const pokemonTypes = ["fire", "flying"];
     const pokemonLevel = 25;
@@ -18,9 +21,9 @@ const HomePage = () => {
     return (
       <div className="p-6">
   
-        <h1 className="text-blue-400 text-4xl mb-4">
-          Bienvenue dans l'App Pokémon
-        </h1>
+        <Text className="text-blue-400 text-4xl mb-4">
+        {t("titles.welcome")} 
+        </Text>
   
         {/* --- Pokémon depuis l'API --- */}
         <section className="mt-8 mb-8">

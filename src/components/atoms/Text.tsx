@@ -32,7 +32,6 @@ const Text: React.FC<TextProps> = ({
 }) => {
   const { t } = useTranslation();
   const content = tKey ? t(tKey) : children;
-
   const textClasses = clsx(
     sizeMap[size],
     colorMap[color],

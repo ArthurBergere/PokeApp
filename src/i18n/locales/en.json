@@ -5,8 +5,12 @@
     "search": "Search...",
     "passwordError": "Password too short"
   },
+  "actions": {
+    "loadMore": "Load more"
+  },
   "titles": {
-    "welcome": "Welcome to PokeApp"
+    "welcome": "Welcome to PokeApp",
+    "allPokemon": "All Pokémon List"
   },
   "descriptions": {
     "home": "Catch them all with a quick search!"

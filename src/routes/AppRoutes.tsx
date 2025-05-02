@@ -1,12 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
+import MonsterListPage from "@/pages/MonsterListPage.tsx";
 
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/pokemons" element={<HomePage />} />
+      <Route path="/pokemons" element={<MonsterListPage />} />
       <Route path="/pokemons/:id" element={<HomePage />} />
       {/* //<Route path="*" element={<NotFoundPage />} /> */}
     </Routes>

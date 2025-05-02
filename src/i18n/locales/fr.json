@@ -5,8 +5,12 @@
     "search": "Rechercher...",
     "passwordError": "Mot de passe trop court"
   },
+  "actions": {
+    "loadMore": "Charger plus"
+  },
   "titles": {
-    "welcome": "Bienvenue sur PokeApp"
+    "welcome": "Bienvenue sur PokeApp",
+    "allPokemon": "Liste de tous les Pokémon"
   },
   "descriptions": {
     "home": "Attrapez-les tous avec une recherche rapide !"

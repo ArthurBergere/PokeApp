@@ -46,9 +46,9 @@ export const usePokemons = ({
 
   useEffect(() => {
     if (initialLoad) {
-      loadPokemons(offset);
+      loadPokemons(0); // Appelle l’offset 0 au tout début
     }
-  }, [initialLoad, loadPokemons, offset]);
+  }, []);
 
   const loadMore = useCallback(() => {
     if (!loading && hasMore) {

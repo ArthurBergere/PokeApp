@@ -15,5 +15,9 @@
   "descriptions": {
     "home": "Attrapez-les tous avec une recherche rapide !"
   },
-  "langSwitch": "Changer de langue"
+  "langSwitch": "Changer de langue",
+  "navbar":{
+    "element1": "Accueil",
+    "element2": "Listes des Pokemon"
+  }
 }

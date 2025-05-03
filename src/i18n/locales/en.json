@@ -15,5 +15,9 @@
   "descriptions": {
     "home": "Catch them all with a quick search!"
   },
-  "langSwitch": "Switch language"
+  "langSwitch": "Switch language",
+  "navbar":{
+    "element1": "Home",
+    "element2": "Pokemon List"
+  }
 }

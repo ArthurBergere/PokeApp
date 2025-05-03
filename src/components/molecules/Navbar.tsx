@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import i18n from "../../i18n";
-import { t } from "i18next";
 import Button from "../atoms/Button";
+import { useTranslation } from "react-i18next";
 
 const navLinks = [
-  { label: "Accueil", to: "/" },
-  { label: "Liste des monstres", to: "/pokemons" },
+  { key: "navbar.element1", to: "/" },
+  { key: "navbar.element2", to: "/pokemons" },
 ];
+
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { t } = useTranslation();
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
   const toggleLanguage = () => {
@@ -29,7 +30,7 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
-          {navLinks.map((link) => (
+        {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
@@ -37,18 +38,25 @@ const Navbar: React.FC = () => {
                 `text-white hover:text-cyan-400 transition-colors duration-200 ${isActive ? "border-b-2 border-cyan-400 pb-1" : ""}`
               }
             >
-              {t(link.label)} {/* Utilisation de la traduction */}
+              {t(link.key)}
             </NavLink>
           ))}
         </div>
 
         {/* Lang Switch Button */}
         <Button
+          variant="outline"
           onClick={toggleLanguage}
-          className="text-white hover:text-cyan-400 transition-colors duration-200"
+          className="p-1"
+          aria-label="Switch language"
         >
-          {t("langSwitch")} 
+          <img
+            src={i18n.language === "en" ? "/flags/gb.svg" : "/flags/fr.svg"}
+            alt="Switch language"
+            className="w-6 h-6"
+          />
         </Button>
+
 
         {/* Burger Menu */}
         <div className="md:hidden">
@@ -70,7 +78,7 @@ const Navbar: React.FC = () => {
                 `text-white hover:text-cyan-400 transition-colors ${isActive ? "font-bold" : ""}`
               }
             >
-              {t(link.label)} {/* Utilisation de la traduction */}
+              {t(link.key)} {/* Utilisation de la traduction */}
             </NavLink>
           ))}
         </div>

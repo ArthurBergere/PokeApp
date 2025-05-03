@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 import { ButtonProps } from "../propsModel/Button.type";
 
@@ -11,7 +10,6 @@ const Button: React.FC<ButtonProps> = ({
   children,
   className
 }) => {
-  const { t } = useTranslation();
 
   const baseStyles = "px-4 py-2 rounded-2xl font-semibold transition-all duration-200 focus:outline-none";
 
@@ -30,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {t(children)}
+       {children}
     </button>
   );
 };

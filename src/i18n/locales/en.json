@@ -6,11 +6,13 @@
     "passwordError": "Password too short"
   },
   "actions": {
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "ExploreBtn": "Start Exploring"
   },
   "titles": {
     "welcome": "Welcome to PokeApp",
-    "allPokemon": "All Pokémon List"
+    "allPokemon": "All Pokémon List",
+    "introText": "Dive into a world of fascinating creatures. Start exploring now!"
   },
   "descriptions": {
     "home": "Catch them all with a quick search!"

@@ -2,7 +2,6 @@ import React from "react";
 import clsx from "clsx";
 import { ButtonProps } from "../propsModel/Button.type";
 
-
 const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   disabled = false,
@@ -24,11 +23,16 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={clsx(baseStyles, variantStyles[variant], disabled && disabledStyles,className)}
+      className={clsx(
+        baseStyles,
+        variantStyles[variant],
+        disabled ? disabledStyles : "cursor-pointer",
+        className
+      )}
       onClick={onClick}
       disabled={disabled}
     >
-       {children}
+      {children}
     </button>
   );
 };

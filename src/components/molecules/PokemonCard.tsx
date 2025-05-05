@@ -3,11 +3,12 @@ import Image from "../atoms/Image";
 import Text from "../atoms/Text";
 import Badge from "../atoms/Badge";
 import StatLine from "../atoms/StatLine";
+import { motion } from "framer-motion";
 
 type PokemonCardProps = {
   name: string;
   image: string;
-  types: string[]; 
+  types: string[];
   stats: {
     hp: number;
     attack: number;
@@ -17,36 +18,46 @@ type PokemonCardProps = {
   onViewDetails?: () => void;
 };
 
-
 const PokemonCard: React.FC<PokemonCardProps> = ({
   name,
   image,
   types,
   stats,
 }) => {
-  
   return (
-    <div className="bg-black rounded-lg p-4 max-w-xs">
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      whileHover={{ scale: 1.03, boxShadow: "0 0 20px rgba(0,255,255,0.3)" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="bg-black rounded-lg p-4 max-w-xs"
+    >
       {/* Image */}
-      <div className="flex justify-center mb-4">
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className="flex justify-center mb-4 transition-transform duration-300"
+      >
         <Image src={image} alt={name} size="medium" />
-      </div>
-      
+      </motion.div>
+
       {/* Name */}
-      <Text variant="h2" className="text-center text-cyan-400 text-2xl font-bold mb-2">
+      <Text
+        variant="h2"
+        className="text-center text-cyan-400 text-2xl font-bold mb-2"
+      >
         {name}
       </Text>
-      
-      <div className="flex justify-center gap-2 mb-2">
-      {types.map((type) => (
-        <Badge key={type} variant="type" type={type} value={type} />
-      ))}
-    </div>
 
-      
+      {/* Types */}
+      <div className="flex justify-center gap-2 mb-2">
+        {types.map((type) => (
+          <Badge key={type} variant="type" type={type} value={type} />
+        ))}
+      </div>
+
       {/* Divider */}
       <div className="border-t border-gray-700 my-2"></div>
-      
+
       {/* Stats */}
       <div>
         <StatLine label="HP" value={stats.hp} />
@@ -54,8 +65,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
         <StatLine label="Defense" value={stats.defense} />
         <StatLine label="Speed" value={stats.speed} />
       </div>
-
-    </div>
+    </motion.div>
   );
 };
 

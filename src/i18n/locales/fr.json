@@ -25,6 +25,14 @@
   },
   "about": {
     "title": "Qui sommes-nous ?",
-    "description": "Nous sommes une équipe passionnée de développeurs qui aime les Pokémon et React."
+    "description": "Nous sommes deux étudiants en MIAGE à l'université d'Orléans. Ce projet React a été réalisé pour apprendre à structurer une application moderne autour d'une API publique.",
+    "arthur": {
+      "role": "Développeur Frontend",
+      "bio": "Passionné par React, TypeScript et le design system. Toujours prêt à relever des défis UI."
+    },
+    "hakim": {
+      "role": "Développeur Fullstack",
+      "bio": "Amateur de backend propre et curieux de tout. Fan de Pokémon depuis l’enfance."
+    }
   }
 }

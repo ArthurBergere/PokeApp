@@ -3,6 +3,8 @@ import Text from "../atoms/Text";
 import Button from "../atoms/Button";
 import { Github } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Creator } from "../propsModel/Creator";
+import { motion } from "framer-motion";
 
 interface CreatorCardProps {
   creator: Creator;
@@ -12,7 +14,13 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-gray-800 rounded-xl p-6 flex flex-col items-center text-center shadow-md">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="bg-gray-800 rounded-xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow"
+    >
       <img
         src={creator.avatar}
         alt={creator.name}
@@ -36,7 +44,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
           GitHub
         </Button>
       </a>
-    </div>
+    </motion.div>
   );
 };
 

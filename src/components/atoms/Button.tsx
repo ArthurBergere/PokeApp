@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { ButtonProps } from "../propsModel/Button.type";
+import { motion } from "framer-motion"; 
 
 const Button: React.FC<ButtonProps> = ({
   variant = "primary",
@@ -22,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   const disabledStyles = "opacity-50 cursor-not-allowed";
 
   return (
-    <button
+    <motion.button
       className={clsx(
         baseStyles,
         variantStyles[variant],
@@ -31,9 +32,12 @@ const Button: React.FC<ButtonProps> = ({
       )}
       onClick={onClick}
       disabled={disabled}
+      whileHover={{ scale: 1.05 }} // Animation légère lors du survol
+      whileTap={{ scale: 0.95 }} // Réduction légère lors du clic
+      transition={{ type: "spring", stiffness: 200, damping: 15 }} // Fluidité de l'animation
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

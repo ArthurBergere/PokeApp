@@ -22,5 +22,9 @@
   "navbar":{
     "element1": "Home",
     "element2": "Pokemon List"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a team of passionate developers who love Pokémon and React."
   }
 }

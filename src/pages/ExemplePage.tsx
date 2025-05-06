@@ -34,9 +34,9 @@ const ExemplePage: React.FC = () => {
         {/* --- Badges --- */}
         <Text variant="h3" className="mb-2">Badges</Text>
         <div className="flex flex-wrap gap-3 justify-center mb-4">
-          <Badge variant="type" value="Fire" type={pokemonTypes} />
-          <Badge variant="level" value={pokemonLevel} />
-          <Badge variant="status" value={pokemonStatus} />
+          <Badge variant="type"  type={pokemonTypes} />
+          <Badge variant="level" />
+          <Badge variant="status"  />
         </div>
 
         {/* --- Inputs --- */}

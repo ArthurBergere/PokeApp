@@ -11,7 +11,8 @@ const creators: Creator[] = [
       github: "https://github.com/arthurbergere",
       avatar: "https://i.pravatar.cc/150?u=arthurbergere",
       roleKey: "about.arthur.role",
-      bioKey: "about.arthur.bio"
+      bioKey: "about.arthur.bio",
+      favoritePokemonId: 35
     },
     {
       name: "Abdelhakim Elakrouti",
@@ -19,7 +20,8 @@ const creators: Creator[] = [
       github: "https://github.com/ELAKROUTIAbdelhakim",
       avatar: "https://i.pravatar.cc/150?u=hakim",
       roleKey: "about.hakim.role",
-      bioKey: "about.hakim.bio"
+      bioKey: "about.hakim.bio",
+      favoritePokemonId: 45
     }
   ];
   

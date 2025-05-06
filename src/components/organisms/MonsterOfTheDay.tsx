@@ -66,7 +66,6 @@ const MonsterOfTheDay: React.FC = () => {
         <Badge
           variant="type"
           type={pokemon.types.map((t) => t.type.name)}
-          value=""
         />
       </div>
     </motion.div>

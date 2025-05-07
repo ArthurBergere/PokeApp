@@ -44,7 +44,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
   };
 
   return (
-    <div className="w-full max-w-xs aspect-[3/4] perspective-1000">
+    <div className="w-full max-w-xs aspect-[3/4] perspective-1000 mx-auto my-4">
       <div className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isFlipped ? "rotate-y-180" : ""}`}>
         <div className="absolute w-full h-full backface-hidden">
           <motion.div

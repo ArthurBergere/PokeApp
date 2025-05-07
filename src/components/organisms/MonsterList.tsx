@@ -18,8 +18,8 @@ const MonsterList: React.FC = () => {
     }
 
     return (
-        <div className="flex flex-col gap-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="flex flex-col gap-4 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:grid-cols-4">
                 {pokemons.map((pokemon) => (
                     <PokemonCard
                         key={pokemon.id}

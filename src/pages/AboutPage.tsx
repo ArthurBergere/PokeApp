@@ -12,7 +12,7 @@ const creators: Creator[] = [
       avatar: "https://i.pravatar.cc/150?u=arthurbergere",
       roleKey: "about.arthur.role",
       bioKey: "about.arthur.bio",
-      favoritePokemonId: 35
+      favoritePokemonId: 243
     },
     {
       name: "Abdelhakim Elakrouti",
@@ -21,7 +21,7 @@ const creators: Creator[] = [
       avatar: "https://i.pravatar.cc/150?u=hakim",
       roleKey: "about.hakim.role",
       bioKey: "about.hakim.bio",
-      favoritePokemonId: 45
+      favoritePokemonId: 94
     }
   ];
   

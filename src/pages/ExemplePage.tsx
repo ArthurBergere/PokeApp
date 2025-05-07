@@ -8,8 +8,6 @@ import Image from "../components/atoms/Image";
 
 const ExemplePage: React.FC = () => {
     const pokemonTypes = ["fire", "flying"];
-    const pokemonLevel = 25;
-    const pokemonStatus = "active";
   return (
     <div className="bg-gray-900 min-h-screen p-8">
       {/* --- Section Démo de composants --- */}

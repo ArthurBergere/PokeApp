@@ -10,7 +10,7 @@
     "ExploreBtn": "Commencer l'exploration"
   },
   "titles": {
-    "welcome": "Bienvenue sur PokeApp",
+    "welcome": "Bienvenue sur",
     "allPokemon": "Liste de tous les Pokémon",
     "introText": "Plongez dans un monde de créatures fascinantes. Commencez à explorer dès maintenant !",
     "monsterOfTheDay": "Découvrir un pokemon"
@@ -54,5 +54,11 @@
     "dark": "Ténèbres",
     "steel": "Acier",
     "fairy": "Fée"
+  },
+  "notFound": {
+    "title": "404 – Pokémon disparu !",
+    "description": "Oups ! Cette page est aussi introuvable qu’un Métamorph bien planqué.",
+    "button": "Retour à l'accueil",
+    "tip": "Conseil : essaye une autre attaque… ou une autre URL !"
   }
 }

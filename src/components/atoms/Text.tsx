@@ -10,6 +10,7 @@ const colorMap: Record<TextColor, string> = {
   danger: "text-red-500",
   white: "text-white",
   gray: "text-gray-300",
+  poke: "text-rose-600"
 };
 
 const sizeMap = {

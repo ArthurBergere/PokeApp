@@ -10,7 +10,7 @@
     "ExploreBtn": "Start Exploring"
   },
   "titles": {
-    "welcome": "Welcome to PokeApp",
+    "welcome": "Welcome to",
     "allPokemon": "All Pokémon List",
     "introText": "Dive into a world of fascinating creatures. Start exploring now!",
     "monsterOfTheDay": "Monster of the Day"
@@ -54,6 +54,12 @@
     "dark": "Dark",
     "steel": "Steel",
     "fairy": "Fairy"
+  },
+  "notFound": {
+    "title": "404 – Pokémon not found!",
+    "description": "Oops! This page is as hard to find as a well-hidden Ditto.",
+    "button": "Back to home",
+    "tip": "Tip: Try another move... or another URL!"
   }
 
 }

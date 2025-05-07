@@ -1,5 +1,5 @@
 export type TextVariant = "h1" | "h2" | "h3" | "p" | "span";
-export type TextColor = "primary" | "secondary" | "danger" | "white" | "gray";
+export type TextColor = "primary" | "secondary" | "danger" | "white" | "gray" | "poke";
 
 export interface TextProps {
   variant?: TextVariant;

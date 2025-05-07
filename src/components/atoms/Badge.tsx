@@ -25,34 +25,34 @@ const badgeColors = {
 };
 
 
-const Badge: React.FC<BadgeProps> = ({ variant, value, type, className }) => {
+const Badge: React.FC<BadgeProps> = ({ variant, type, className }) => {
   const { t } = useTranslation();
-
+  const renderMultipleTypeBadges = (types: string[], className?: string) => (
+    <div className="flex space-x-2">
+      {types.map((tType) => {
+        const badgeColor = badgeColors[tType as keyof typeof badgeColors] || "bg-gray-400 text-white";
+        return (
+          <span
+            key={tType}
+            className={clsx(
+              "inline-block px-4 py-2 rounded-full font-semibold text-sm",
+              badgeColor,
+              className
+            )}
+          >
+            {t(`types.${tType}`)}
+          </span>
+        );
+      })}
+    </div>
+  );
+  
   // Définir la couleur et le style en fonction du type Pokémon ou de la variante
   let badgeClass = "";
 
   // créer un badge pour chaque type
   if (variant === "type" && Array.isArray(type)) {
-    return (
-      <div className="flex space-x-2">
-        {type.map((tType) => {
-          const badgeColor = badgeColors[tType as keyof typeof badgeColors] || "bg-gray-400 text-white";
-         
-          return (
-            <span
-              key={tType}
-              className={clsx(
-                "inline-block px-4 py-2 rounded-full font-semibold text-sm",
-                badgeColor,
-                className
-              )}
-            >
-              {t(tType)}
-            </span>
-          );
-        })}
-      </div>
-    );
+    return renderMultipleTypeBadges(type, className);
   }
 
   //gestion si badge level ou status
@@ -82,7 +82,7 @@ const Badge: React.FC<BadgeProps> = ({ variant, value, type, className }) => {
         className
       )}
     >
-      {t(value.toString())} {/* Support de la traduction */}
+      {t(`types.${type}`)}
     </span>
   );
 };

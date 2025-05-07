@@ -19,7 +19,7 @@
     "home": "Attrapez-les tous avec une recherche rapide !"
   },
   "langSwitch": "Changer de langue",
-  "navbar":{
+  "navbar": {
     "element1": "Accueil",
     "element2": "Listes des Pokemon"
   },
@@ -34,5 +34,25 @@
       "role": "Développeur Fullstack",
       "bio": "Amateur de backend propre et curieux de tout. Fan de Pokémon depuis l’enfance."
     }
+  },
+  "types": {
+    "normal": "Normal",
+    "fire": "Feu",
+    "water": "Eau",
+    "electric": "Électrik",
+    "grass": "Plante",
+    "ice": "Glace",
+    "fighting": "Combat",
+    "poison": "Poison",
+    "ground": "Sol",
+    "flying": "Vol",
+    "psychic": "Psy",
+    "bug": "Insecte",
+    "rock": "Roche",
+    "ghost": "Spectre",
+    "dragon": "Dragon",
+    "dark": "Ténèbres",
+    "steel": "Acier",
+    "fairy": "Fée"
   }
 }

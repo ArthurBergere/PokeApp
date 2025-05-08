@@ -3,5 +3,6 @@ type BadgeVariant = "type" | "level" | "status";
 export interface BadgeProps {
     variant: BadgeVariant;
     type?: string | string[];  // Utilisé pour le variant "type", qui peut être un tableau de types
+    value: string;
     className?: string; // Pour personnaliser davantage les styles si nécessaire
   }

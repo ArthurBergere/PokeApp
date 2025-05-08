@@ -7,7 +7,8 @@
   },
   "actions": {
     "loadMore": "Charger plus",
-    "ExploreBtn": "Commencer l'exploration"
+    "ExploreBtn": "Commencer l'exploration",
+    "back": "Retour"
   },
   "titles": {
     "welcome": "Bienvenue sur",
@@ -60,5 +61,26 @@
     "description": "Oups ! Cette page est aussi introuvable qu’un Métamorph bien planqué.",
     "button": "Retour à l'accueil",
     "tip": "Conseil : essaye une autre attaque… ou une autre URL !"
+  },
+  "labels": {
+    "type": "Type",
+    "level": "Niveau",
+    "evolution": "Évolution",
+    "abilities": "Capacités",
+    "weaknesses": "Faiblesses",
+    "stats": "Statistiques",
+    "description": "Description",
+    "height": "Taille",
+    "weight": "Poids",
+    "none": "Aucune",
+    "noDescription": "Pas de description disponible.",
+    "physicalInfo": "Taille & Poids",
+    "previousEvolution": "Évolution précédente",
+    "nextEvolution":     "Évolution suivante",
+    "noFurtherEvolution":"Aucune évolution suivante"
+  },
+  "loading": "Chargement...",
+  "errors": {
+    "notFound": "Pokémon introuvable"
   }
 }

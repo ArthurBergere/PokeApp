@@ -4,6 +4,7 @@ import MonsterListPage from "@/pages/MonsterListPage.tsx";
 import ExemplePage from "@/pages/ExemplePage";
 import AboutPage from "@/pages/AboutPage";
 import NotFoundPage from "@/pages/NotFoundPage";
+import MonsterDetailsPage from "@/pages/MonsterDetailsPage.tsx";
 
 
 const AppRoutes = () => {
@@ -11,7 +12,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/pokemons" element={<MonsterListPage />} />
-      <Route path="/pokemons/:id" element={<HomePage />} />
+      <Route path="/pokemons/:id" element={<MonsterDetailsPage />} />
       <Route path="/example" element={<ExemplePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="*" element={<NotFoundPage />} />

@@ -7,7 +7,8 @@
   },
   "actions": {
     "loadMore": "Load more",
-    "ExploreBtn": "Start Exploring"
+    "ExploreBtn": "Start Exploring",
+    "back": "Back"
   },
   "titles": {
     "welcome": "Welcome to",
@@ -60,6 +61,27 @@
     "description": "Oops! This page is as hard to find as a well-hidden Ditto.",
     "button": "Back to home",
     "tip": "Tip: Try another move... or another URL!"
-  }
+  },
 
+  "labels": {
+    "type": "Type",
+    "level": "Level",
+    "evolution": "Evolution",
+    "abilities": "Abilities",
+    "weaknesses": "Weaknesses",
+    "stats": "Stats",
+    "description": "Description",
+    "height": "Height",
+    "weight": "Weight",
+    "none": "None",
+    "noDescription": "No description available.",
+    "physicalInfo": "Size & Weight",
+    "previousEvolution": "Previous evolution",
+    "nextEvolution":     "Next evolution",
+    "noFurtherEvolution":"No further evolution"
+  },
+  "loading": "Loading...",
+  "errors": {
+    "notFound": "Pokémon not found"
+  }
 }

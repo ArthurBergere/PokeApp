@@ -1,11 +1,15 @@
 import { getPokemonData, getPokemonList, searchPokemon } from '../services/pokeApi';
 import { PokemonData } from './model/PokemonData.type';
 
+
 export interface Pokemon {
   id: number;
   name: string;
   image: string;
   types: string[];
+  height: number;
+  weight: number;
+  abilities: string[];
   stats: {
     hp: number;
     attack: number;
@@ -25,8 +29,13 @@ const formatPokemonData = (pokemonData: PokemonData): Pokemon => {
   return {
     id: pokemonData.id,
     name: pokemonData.name,
-    image: pokemonData.sprites.other['official-artwork'].front_default || pokemonData.sprites.front_default,
-    types: pokemonData.types.map(type => type.type.name),
+    image:
+        pokemonData.sprites.other['official-artwork'].front_default ??
+        pokemonData.sprites.front_default ??
+        "",    types: pokemonData.types.map(type => type.type.name),
+    height: pokemonData.height,
+    weight: pokemonData.weight,
+    abilities: pokemonData.abilities.map(ab => ab.ability.name),
     stats: {
       hp: statsMap['hp'] || 0,
       attack: statsMap['attack'] || 0,

@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { PokemonData } from './model/PokemonData.type';
+import { Pokemon, formatPokemonData } from './pokemonService'
 
 const API_BASE_URL = 'https://pokeapi.co/api/v2';
 
@@ -118,6 +119,27 @@ export async function getAbilityData(
       `/ability/${abilityName}`
   );
   return response.data;
+}
+
+export interface TypeListResponse {
+  results: { name: string; url: string }[];
+}
+
+export async function getTypeList(): Promise<TypeListResponse> {
+  const { data } = await pokeApiClient.get<TypeListResponse>('/type');
+  return data;
+}
+
+export async function getPokemonsByType(typeName: string): Promise<Pokemon[]> {
+  // 1) Récupère la liste brute
+  const { data } = await pokeApiClient.get<{
+    pokemon: { pokemon: { name: string } }[];
+  }>(`/type/${typeName}`);
+
+  // 2) Va chercher les détails
+  const names = data.pokemon.map(p => p.pokemon.name);
+  const details = await Promise.all(names.map(n => getPokemonData(n)));
+  return details.map(formatPokemonData);
 }
 
 export default {

@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import MonsterListPage from "@/pages/MonsterListPage.tsx";
+import MonsterListPage from "@/pages/MonsterListPage";
 import ExemplePage from "@/pages/ExemplePage";
 import AboutPage from "@/pages/AboutPage";
 import NotFoundPage from "@/pages/NotFoundPage";
-import MonsterDetailsPage from "@/pages/MonsterDetailsPage.tsx";
+import MonsterDetailsPage from "@/pages/MonsterDetailsPage";
 
 
 const AppRoutes = () => {

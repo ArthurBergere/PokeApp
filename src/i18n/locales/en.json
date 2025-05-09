@@ -83,5 +83,12 @@
   "loading": "Loading...",
   "errors": {
     "notFound": "Pokémon not found"
+  },
+  "form": {
+    "search": "Search…"
+  },
+  "filters": {
+    "type": "Filter by Type",
+    "all": "All"
   }
 }

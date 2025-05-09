@@ -82,5 +82,12 @@
   "loading": "Chargement...",
   "errors": {
     "notFound": "Pokémon introuvable"
+  },
+  "form": {
+    "search": "Rechercher…"
+  },
+  "filters": {
+    "type": "Filtrer par type",
+    "all": "Tous"
   }
 }

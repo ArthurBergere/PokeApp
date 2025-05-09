@@ -1,5 +1,6 @@
 import axios from "axios";
 import { PokemonData } from "./model/PokemonData.type";
+import { useEffect, useState } from "react";
 
 const API_BASE_URL = "https://pokeapi.co/api/v2";
 const pokeApiClient = axios.create({
@@ -113,7 +114,7 @@ export async function getPokemons(
 
 // recherche par nom
 export async function searchPokemons(query: string): Promise<Pokemon[]> {
-  const { results } = await getPokemonList(200, 0);
+  const { results } = await getPokemonList(800, 0);
   const matches = results
       .filter((r) => r.name.toLowerCase().includes(query.toLowerCase()))
       .map((r) => r.name);
@@ -168,4 +169,46 @@ export default {
   getPokemonsByType,
   getPokemonsByTypes,
   getTypeRelations,
+};
+
+export const useFilteredPokemons = (searchTerm: string, selectedTypes: string[]) => {
+  const [results, setResults] = useState<Pokemon[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!searchTerm && selectedTypes.length === 0) {
+      setResults([]);
+      setError(null);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    (async () => {
+      try {
+        let pokemons: Pokemon[] = [];
+
+        if (selectedTypes.length > 0) {
+          pokemons = await getPokemonsByTypes(selectedTypes);
+          if (searchTerm) {
+            pokemons = pokemons.filter(p =>
+              p.name.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+          }
+        } else {
+          pokemons = await searchPokemons(searchTerm);
+        }
+
+        setResults(pokemons);
+      } catch (err: any) {
+        setError(err.message || "Erreur de chargement");
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [searchTerm, selectedTypes]);
+
+  return { results, loading, error };
 };

@@ -84,11 +84,33 @@
   "errors": {
     "notFound": "Pokémon not found"
   },
-  "form": {
-    "search": "Search…"
-  },
   "filters": {
     "type": "Filter by Type",
     "all": "All"
+  },
+  "home": {
+    "hero": {
+      "title": "Explore. Discover. Master the Pokémon world",
+      "subtitle": "Search, filter, and view detailed information about your favorite Pokémon — all in one place.",
+      "cta": "Start Searching"
+    },
+    "features": {
+      "title": "Our Features",
+      "search": {
+        "title": "Search & Filter",
+        "desc": "Quickly find any Pokémon using our powerful search engine and advanced filters.",
+        "link": "View search"
+      },
+      "detail": {
+        "title": "Detailed Info",
+        "desc": "Access full information, stats, and official descriptions for every Pokémon.",
+        "link": "View a Pokémon"
+      },
+      "evolution": {
+        "title": "Evolutions",
+        "desc": "Explore the full evolutionary paths of Pokémon — from Bulbasaur to Blastoise.",
+        "link": "View evolutions"
+      }
+    }
   }
 }

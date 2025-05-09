@@ -5,7 +5,7 @@ export interface TextProps {
   variant?: TextVariant;
   tKey?: string; // clé i18n
   children?: React.ReactNode;
-  size?: "sm" | "base" | "lg" | "xl" | "2xl" | "6xl";
+  size?: "sm" | "base" | "lg" | "xl" | "2xl"| "4xl" | "6xl";
   color?: TextColor;
   bold?: boolean;
   italic?: boolean;

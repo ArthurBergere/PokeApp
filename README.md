@@ -1,6 +1,10 @@
 # PokeApp
 
 ## ✨ Projet React + TypeScript + Vite
+![Vite](https://img.shields.io/badge/Vite-React-blueviolet?logo=vite)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.x-blue?logo=typescript)
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+
 
 [PokeApp](https://univ-pokeapp.vercel.app) est une application web développée avec React et Vite, permettant d'afficher une liste de Pokémon avec pagination, recherche dynamique et affichage des détails de chaque Pokémon. L'interface est disponible en français et en anglais, avec un changement de langue instantané grâce à react-i18next. La navigation est assurée par React Router, et la gestion du state global est centralisée via useContext. Conçue avec React/vite et une architecture basée sur Atomic Design.
 

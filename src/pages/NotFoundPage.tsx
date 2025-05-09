@@ -4,6 +4,7 @@ import Image from "../components/atoms/Image"; // adapte selon ton arborescence
 import { Sparkles, ArrowLeft } from "lucide-react";
 import Button from "@/components/atoms/Button";
 import { useTranslation } from "react-i18next";
+import MonsterOfTheDay from "@/components/organisms/MonsterOfTheDay";
 
 const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
@@ -27,10 +28,11 @@ const NotFoundPage: React.FC = () => {
         <ArrowLeft className="w-5 h-5" />
         {t("notFound.button")}
       </Button>
-      <div className="mt-8 flex items-center gap-2 text-sm text-gray-500">
+      <div className="mt-8 flex items-center gap-2 text-sm text-gray-500 mb-4">
         <Sparkles className="w-4 h-4 animate-pulse" />
         <div>{t("notFound.tip")}</div>
       </div>
+      <MonsterOfTheDay></MonsterOfTheDay>
     </div>
   );
 };

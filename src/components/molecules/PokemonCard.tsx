@@ -51,7 +51,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       {/* Types */}
       <div className="flex justify-center gap-2 mb-2">
         {types.map((type) => (
-          <Badge key={type} variant="type" type={type}  />
+          <Badge key={type} variant="type" type={type} value={""}  />
         ))}
       </div>
 

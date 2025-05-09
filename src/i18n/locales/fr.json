@@ -83,11 +83,33 @@
   "errors": {
     "notFound": "Pokémon introuvable"
   },
-  "form": {
-    "search": "Rechercher…"
-  },
   "filters": {
     "type": "Filtrer par type",
     "all": "Tous"
+  },
+  "home": {
+    "hero": {
+      "title": "Explore. Découvre. Maîtrise le monde Pokémon",
+      "subtitle": "Rechercher, filtrer et consulter en détail tous vos Pokémon favoris sur une seule plateforme.",
+      "cta": "Commencer la recherche"
+    },
+    "features": {
+      "title": "Nos fonctionnalités",
+      "search": {
+        "title": "Recherche & Filtre",
+        "desc": "Trouvez rapidement un Pokémon grâce à notre moteur de recherche et filtres avancés.",
+        "link": "Voir la recherche"
+      },
+      "detail": {
+        "title": "Détails Complets",
+        "desc": "Accédez à toutes les informations, stats et descriptions officielles de chaque Pokémon.",
+        "link": "Voir un Pokémon"
+      },
+      "evolution": {
+        "title": "Évolutions",
+        "desc": "Découvrez l’arbre évolutif complet de chaque Pokémon, de Bulbizarre à Tortank.",
+        "link": "Voir les évolutions"
+      }
+    }
   }
 }

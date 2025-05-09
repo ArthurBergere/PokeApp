@@ -19,6 +19,7 @@ const sizeMap = {
   lg: "text-lg",
   xl: "text-xl",
   "2xl": "text-2xl",
+  "4xl": "text-4xl",
   "6xl": "text-6xl"
 };
 

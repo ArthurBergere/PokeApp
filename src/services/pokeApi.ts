@@ -62,6 +62,12 @@ export async function getPokemonData(
   );
   return response.data;
 }
+export async function getPokemonFormatted(
+  nameOrId: string | number
+): Promise<Pokemon> {
+  const rawData = await getPokemonData(nameOrId);
+  return formatPokemonData(rawData);
+}
 
 export async function searchPokemon(
     query: string,
@@ -148,4 +154,34 @@ export default {
   searchPokemon,
   getPokemonSpecies,
   getTypeRelations,
+};
+
+
+export const getPokemonEvolutionChain = async (
+  pokemonId: number
+): Promise<Pokemon[]> => {
+  try {
+    const speciesRes = await fetch(`${API_BASE_URL}/pokemon-species/${pokemonId}`);
+    const speciesData = await speciesRes.json();
+
+    const evolutionRes = await fetch(speciesData.evolution_chain.url);
+    const evolutionData = await evolutionRes.json();
+
+    const namesInChain: string[] = [];
+
+    let current = evolutionData.chain;
+    while (current) {
+      namesInChain.push(current.species.name);
+      current = current.evolves_to[0]; 
+    }
+
+    const evolutionPokemon = await Promise.all(
+      namesInChain.map((name) => getPokemonFormatted(name))
+    );
+
+    return evolutionPokemon;
+  } catch (error) {
+    console.error("Error fetching evolution chain:", error);
+    return [];
+  }
 };

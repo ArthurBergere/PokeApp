@@ -5,6 +5,7 @@ import ExemplePage from "@/pages/ExemplePage";
 import AboutPage from "@/pages/AboutPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 import MonsterDetailsPage from "@/pages/MonsterDetailsPage";
+import PokemonEvolutionPage from "@/pages/PokemonEvolutionPage";
 
 
 const AppRoutes = () => {
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/example" element={<ExemplePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="*" element={<NotFoundPage />} />
+      <Route path="/pokemon/:id/evolution" element={<PokemonEvolutionPage />} />
     </Routes>
   );
 };

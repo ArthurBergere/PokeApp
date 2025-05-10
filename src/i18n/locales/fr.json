@@ -14,7 +14,11 @@
     "welcome": "Bienvenue sur",
     "allPokemon": "Liste de tous les Pokémon",
     "introText": "Plongez dans un monde de créatures fascinantes. Commencez à explorer dès maintenant !",
-    "monsterOfTheDay": "Découvrir un pokemon"
+    "monsterOfTheDay": "Découvrir un pokemon",
+    "evolutionschain":"Liste des évolutions du pokemon"
+  },
+  "pokemon": {
+    "invalid": "Pokemon invalide ..."
   },
   "descriptions": {
     "home": "Attrapez-les tous avec une recherche rapide !"

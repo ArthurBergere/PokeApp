@@ -5,6 +5,7 @@ import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
 import Text from "../components/atoms/Text";
 import Image from "../components/atoms/Image";
+import PokemonEvolutionTree from "@/components/organisms/PokemonEvolutionTree";
 
 const ExemplePage: React.FC = () => {
     const pokemonTypes = ["fire", "flying"];
@@ -32,11 +33,11 @@ const ExemplePage: React.FC = () => {
         {/* --- Badges --- */}
         <Text variant="h3" className="mb-2">Badges</Text>
         <div className="flex flex-wrap gap-3 justify-center mb-4">
-          <Badge variant="type"  type={pokemonTypes} />
-          <Badge variant="level" />
-          <Badge variant="status"  />
+          <Badge variant="type" type={pokemonTypes} value={""} />
+          <Badge variant="level" value={""} />
+          <Badge variant="status" value={""}  />
         </div>
-
+        <PokemonEvolutionTree pokemonId={1} />
         {/* --- Inputs --- */}
         <Text variant="h3" className="mb-2">Inputs</Text>
         <div className="flex flex-wrap gap-3 justify-center mb-4">

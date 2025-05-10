@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { PokemonData } from "./model/PokemonData.type";
 import { useEffect, useState } from "react";
 
@@ -202,9 +202,10 @@ export const useFilteredPokemons = (searchTerm: string, selectedTypes: string[])
         }
 
         setResults(pokemons);
-      } catch (err: any) {
-        setError(err.message || "Erreur de chargement");
-      } finally {
+      }catch (err) {
+          const error = err as AxiosError;
+          setError(error.message || "Erreur de chargement");
+        } finally {
         setLoading(false);
       }
     })();

@@ -14,7 +14,11 @@
     "welcome": "Welcome to",
     "allPokemon": "All Pokémon List",
     "introText": "Dive into a world of fascinating creatures. Start exploring now!",
-    "monsterOfTheDay": "Monster of the Day"
+    "monsterOfTheDay": "Monster of the Day",
+    "evolutionschain":"Pokemon Evolution Chains"
+  },
+  "pokemon": {
+    "invalid": "Invalid Pokemon ..."
   },
   "descriptions": {
     "home": "Catch them all with a quick search!"

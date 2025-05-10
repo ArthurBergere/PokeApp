@@ -28,8 +28,8 @@
     "title": "About Us",
     "description": "We are two MIAGE students from the University of Orléans. This React project was created to learn how to structure a modern application using a public API.",
     "arthur": {
-      "role": "Frontend Developer",
-      "bio": "Passionate about React, TypeScript, and design systems. Always ready to take on UI challenges."
+      "role": "FullStack Developer",
+      "bio": "Passionate developer and bug trainer in my spare time! When I'm not coding or hunting Pokémon, you'll find me perfecting UI/UX ;)"
     },
     "hakim": {
       "role": "Fullstack Developer",

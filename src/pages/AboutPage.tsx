@@ -9,7 +9,7 @@ const creators: Creator[] = [
       name: "Arthur Bergère",
       age: 22,
       github: "https://github.com/arthurbergere",
-      avatar: "https://i.pravatar.cc/150?u=arthurbergere",
+      avatar: "https://avatars.githubusercontent.com/u/80512736?v=4",
       roleKey: "about.arthur.role",
       bioKey: "about.arthur.bio",
       favoritePokemonId: 243
@@ -18,7 +18,7 @@ const creators: Creator[] = [
       name: "Abdelhakim Elakrouti",
       age: 22,
       github: "https://github.com/ELAKROUTIAbdelhakim",
-      avatar: "https://i.pravatar.cc/150?u=hakim",
+      avatar: "https://avatars.githubusercontent.com/u/113030581?v=4",
       roleKey: "about.hakim.role",
       bioKey: "about.hakim.bio",
       favoritePokemonId: 94

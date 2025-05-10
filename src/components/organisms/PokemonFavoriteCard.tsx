@@ -31,7 +31,7 @@ const PokemonFavoriteCard: React.FC<PokemonFavoriteCardProps> = ({
       <div className="flex justify-between items-center w-full mb-5">
         <button
           onClick={onFlip}
-          className="text-gray-400 hover:text-white transition-colors flex items-center text-sm"
+          className="text-gray-400 cursor-pointer hover:text-white transition-colors flex items-center text-sm"
         >
           <ArrowLeft className="w-4 h-4 mr-1" />
           {t("Back")}
@@ -57,7 +57,7 @@ const PokemonFavoriteCard: React.FC<PokemonFavoriteCardProps> = ({
 
       {/* Types */}
       <div className="mb-5">
-        <Badge variant="type" type={pokemon.types.map((t) => t.type.name)} />
+        <Badge variant="type" type={pokemon.types.map((t) => t.type.name)} value={""} />
       </div>
 
       {/* Height and Weight */}

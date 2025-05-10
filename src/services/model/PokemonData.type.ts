@@ -23,10 +23,10 @@ export interface PokemonData {
         };
     }[];
     sprites: {
-        front_default: string | null;
+        front_default: string;
         other: {
             'official-artwork': {
-                front_default: string | null;
+                front_default: string;
             };
         };
     };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Text from "../atoms/Text";
-import Button from "../atoms/Button";
 import { Github } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Creator } from "../propsModel/Creator";
@@ -8,7 +7,7 @@ import { motion } from "framer-motion";
 import PokemonFavoriteCard from "./PokemonFavoriteCard";
 import { PokemonData } from "../../services/model/PokemonData.type";
 import { getPokemonData } from "../../services/pokeApi";
-
+import { BsArrowRepeat } from "react-icons/bs";
 
 interface CreatorCardProps {
   creator: Creator;
@@ -53,7 +52,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
             onClick={handleFlip}
-            className="bg-gray-800 rounded-xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow cursor-pointer h-full"
+            className="relative  bg-gray-800 rounded-xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow cursor-pointer h-full"
           >
             <img
               src={creator.avatar}
@@ -69,21 +68,27 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
             </Text>
             
             <div className="mt-auto pt-4 flex flex-col items-center">
-              <Text size="base" color="gray" className="mb-2">
-                {t("Click to see my favorite Pokémon")}
-              </Text>
-              
-              <a
-                href={creator.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
+              <button
+                onClick={handleFlip}
+                className="absolute top-4 right-4 text-gray-400 cursor-pointer hover:text-white transition-colors z-10"
+                title={t("See my favorite Pokémon")}
               >
-                <Button variant="outline">
-                  <Github className="w-5 h-5 mr-2" />
-                  GitHub
-                </Button>
-              </a>
+                <BsArrowRepeat className="w-6 h-6" />
+              </button>
+
+              
+              <div onClick={(e) => e.stopPropagation()}>
+                <a
+                  href={creator.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${creator.name}'s GitHub`}
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-gray-600 rounded-full text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                >
+                  <Github className="w-5 h-5" />
+                  <span className="text-sm font-medium">GitHub</span>
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

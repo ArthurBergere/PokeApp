@@ -89,7 +89,7 @@
   },
   "filters": {
     "type": "Filtrer par type",
-    "all": "Tous"
+    "reset": "Effacer"
   },
   "home": {
     "hero": {

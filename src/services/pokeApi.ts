@@ -185,3 +185,15 @@ export const getPokemonEvolutionChain = async (
     return [];
   }
 };
+
+
+
+export async function getPokemonIdByName(name: string): Promise<number | null> {
+  try {
+    const data = await getPokemonData(name.toLowerCase());
+    return data.id;
+  } catch (error) {
+    console.error("Pokemon not found:", name, error);
+    return null;
+  }
+}

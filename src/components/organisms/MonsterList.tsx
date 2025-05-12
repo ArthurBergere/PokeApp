@@ -45,28 +45,23 @@ const MonsterList: React.FC<MonsterListProps> = ({
             )}
 
             {/* Grille de cartes */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                {filtered.map((pokemon) => (
-                    <div
-                        key={pokemon.id}
-                        onClick={() => navigate(`/pokemons/${pokemon.name}`)}
-                        className="cursor-pointer transform hover:scale-105 transition-transform"
-                    >
-                        <PokemonCard
-                            name={pokemon.name}
-                            image={pokemon.image}
-                            types={pokemon.types}
-                            stats={{
-                                hp: pokemon.stats.hp,
-                                attack: pokemon.stats.attack,
-                                defense: pokemon.stats.defense,
-                                speed: pokemon.stats.speed,
-                            }}
-                        />
-                    </div>
-                ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+            {filtered.map((pokemon) => (
+                <PokemonCard
+                key={pokemon.id}
+                name={pokemon.name}
+                image={pokemon.image}
+                types={pokemon.types}
+                stats={{
+                    hp: pokemon.stats.hp,
+                    attack: pokemon.stats.attack,
+                    defense: pokemon.stats.defense,
+                    speed: pokemon.stats.speed,
+                }}
+                onCardClick={() => navigate(`/pokemons/${pokemon.name.toLowerCase()}`)}
+                />
+            ))}
             </div>
-
             {/* Bouton « Charger plus » */}
             {hasMore && !loading && filtered.length > 0 && (
                 <div className="flex justify-center mt-6">

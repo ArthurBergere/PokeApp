@@ -15,7 +15,8 @@ type PokemonCardProps = {
     defense: number;
     speed: number;
   };
-  onViewDetails?: () => void;
+  className?: string;
+  onCardClick?: () => void;
 };
 
 const PokemonCard: React.FC<PokemonCardProps> = ({
@@ -23,14 +24,17 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
   image,
   types,
   stats,
+  className = "",
+  onCardClick,
 }) => {
   return (
     <motion.div
+      onClick={onCardClick}
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ scale: 1.03, boxShadow: "0 0 20px rgba(0,255,255,0.3)" }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="bg-black rounded-lg p-4 max-w-xs"
+      className={`bg-black rounded-lg p-4 max-w-xs cursor-pointer ${className}`}
     >
       {/* Image */}
       <motion.div

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Button from "@/components/atoms/Button";
 import SearchBar from "@/components/molecules/SearchBar";
 import MultiSelectFilter from "../molecules/MultiSelect";
+import { X } from "lucide-react";
 
 interface FilterBarProps {
   searchTerm: string;
@@ -31,8 +32,13 @@ const FilterBar: React.FC<FilterBarProps> = ({
           onChange={setSearchTerm}
           placeholder={t("form.search")!}
         />
-        <Button variant="secondary" onClick={onReset}>
-          {t("filters.all")}
+        <Button
+          variant="outline"
+          onClick={onReset}
+          className="flex items-center gap-2"
+        >
+          <X className="w-4 h-4" />
+          {t("filters.reset")}
         </Button>
       </div>
       <MultiSelectFilter

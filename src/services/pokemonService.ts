@@ -1,6 +1,7 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { PokemonData } from "./model/PokemonData.type";
 import { useEffect, useState } from "react";
+import {getGenerationDetail, getPokemonFormatted} from "@/services/pokeApi.ts";
 
 const API_BASE_URL = "https://pokeapi.co/api/v2";
 const pokeApiClient = axios.create({
@@ -160,24 +161,56 @@ export async function getTypeRelations(
   return data;
 }
 
-export default {
-  getPokemons,
-  getPokemonData,
-  getPokemonDetails,
-  getTypeList,
-  searchPokemons,
-  getPokemonsByType,
-  getPokemonsByTypes,
-  getTypeRelations,
-};
+export interface GenerationListResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: NamedAPIResource[];
+}
+export async function getGenerationList(): Promise<NamedAPIResource[]> {
+  const { data } = await pokeApiClient.get<GenerationListResponse>("/generation");
+  return data.results;
+}
 
-export const useFilteredPokemons = (searchTerm: string, selectedTypes: string[]) => {
+interface PokemonSpeciesFull {
+  varieties: { is_default: boolean; pokemon: NamedAPIResource }[];
+}
+export async function getPokemonsByGeneration(
+    generationIdOrName: string | number
+): Promise<Pokemon[]> {
+  const gen = await getGenerationDetail(generationIdOrName);
+  const speciesNames = gen.pokemon_species.map(s => s.name);
+
+  const pokemons = await Promise.all(
+      speciesNames.map(async (speciesName) => {
+        const speciesData = await pokeApiClient
+            .get<PokemonSpeciesFull>(`/pokemon-species/${speciesName}`)
+            .then(res => res.data);
+
+        const defaultVariety = speciesData.varieties.find(v => v.is_default);
+        const pokeName = defaultVariety
+            ? defaultVariety.pokemon.name
+            : speciesName;
+
+        return getPokemonFormatted(pokeName);
+      })
+  );
+
+  return pokemons;
+}
+
+export const useFilteredPokemons = (
+    searchTerm: string,
+    selectedTypes: string[],
+    selectedGeneration: string
+) => {
   const [results, setResults] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!searchTerm && selectedTypes.length === 0) {
+    // Si aucun filtre, on vide
+    if (!searchTerm && selectedTypes.length === 0 && !selectedGeneration) {
       setResults([]);
       setError(null);
       return;
@@ -188,28 +221,53 @@ export const useFilteredPokemons = (searchTerm: string, selectedTypes: string[])
 
     (async () => {
       try {
-        let pokemons: Pokemon[] = [];
+        let list: Pokemon[] = [];
 
-        if (selectedTypes.length > 0) {
-          pokemons = await getPokemonsByTypes(selectedTypes);
-          if (searchTerm) {
-            pokemons = pokemons.filter(p =>
-              p.name.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-          }
+        if (selectedGeneration) {
+          // 1) on récupère toute la gen
+          list = await getPokemonsByGeneration(selectedGeneration);
+        } else if (selectedTypes.length > 0) {
+          // 2) sinon par types
+          list = await getPokemonsByTypes(selectedTypes);
         } else {
-          pokemons = await searchPokemons(searchTerm);
+          // 3) sinon par nom
+          list = await searchPokemons(searchTerm);
         }
 
-        setResults(pokemons);
-      }catch (err) {
-          const error = err as AxiosError;
-          setError(error.message || "Erreur de chargement");
-        } finally {
+        // 4) on applique en mémoire le reste des filtres
+        if (selectedTypes.length > 0) {
+          list = list.filter(p =>
+              selectedTypes.every(t => p.types.includes(t))
+          );
+        }
+        if (searchTerm) {
+          list = list.filter(p =>
+              p.name.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+        }
+
+        setResults(list);
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : String(err);
+        setError(errorMessage);
+      } finally {
         setLoading(false);
       }
     })();
-  }, [searchTerm, selectedTypes]);
+  }, [searchTerm, selectedTypes, selectedGeneration]);
 
   return { results, loading, error };
+};
+
+export default {
+  getPokemons,
+  getPokemonData,
+  getPokemonDetails,
+  getTypeList,
+  searchPokemons,
+  getPokemonsByType,
+  getPokemonsByTypes,
+  getTypeRelations,
+  getGenerationList,
+  getPokemonsByGeneration,
 };

@@ -58,7 +58,9 @@
     "dragon": "Dragon",
     "dark": "Dark",
     "steel": "Steel",
-    "fairy": "Fairy"
+    "fairy": "Fairy",
+    "stellar": "Stellar",
+    "unknown": "Unknown"
   },
   "notFound": {
     "title": "404 – Pokémon not found!",
@@ -82,7 +84,20 @@
     "physicalInfo": "Size & Weight",
     "previousEvolution": "Previous evolution",
     "nextEvolution":     "Next evolution",
-    "noFurtherEvolution":"No further evolution"
+    "noFurtherEvolution":"No further evolution",
+    "noResults": "No Pokémon match your search"
+  },
+  "generations": {
+    "generation-i": "Generation I",
+    "generation-ii": "Generation II",
+    "generation-iii": "Generation III",
+    "generation-iv": "Generation IV",
+    "generation-v": "Generation V",
+    "generation-vi": "Generation VI",
+    "generation-vii": "Generation VII",
+    "generation-viii": "Generation VIII",
+    "generation-ix": "Generation IX"
+
   },
   "loading": "Loading...",
   "errors": {
@@ -90,7 +105,9 @@
   },
   "filters": {
     "type": "Filter by Type",
-    "reset": "Reset"
+    "reset": "Reset",
+    "generation": "Generation",
+    "allGenerations": "All generations"
   },
   "home": {
     "hero": {

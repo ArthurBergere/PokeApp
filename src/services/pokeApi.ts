@@ -131,9 +131,47 @@ export interface TypeListResponse {
   results: { name: string; url: string }[];
 }
 
+export interface NamedAPIResource {
+  name: string;
+  url: string;
+}
+
+export interface GenerationListResponse {
+  results: NamedAPIResource[];
+}
+
+export interface GenerationDetail {
+  pokemon_species: NamedAPIResource[];
+}
+
 export async function getTypeList(): Promise<TypeListResponse> {
   const { data } = await pokeApiClient.get<TypeListResponse>('/type');
   return data;
+}
+
+// 6) Liste des générations
+export async function getGenerationList(): Promise<GenerationListResponse> {
+  const { data } = await pokeApiClient.get<GenerationListResponse>('/generation');
+  return data;
+}
+
+// 7) Détails d'une génération (liste des espèces)
+export async function getGenerationDetail(
+  generationIdOrName: string | number
+): Promise<GenerationDetail> {
+  const { data } = await pokeApiClient.get<GenerationDetail>(`/generation/${generationIdOrName}`);
+  return data;
+}
+
+// 8) Récupère tous les Pokémon d'une génération
+export async function getPokemonsByGeneration(
+  generationIdOrName: string | number
+): Promise<Pokemon[]> {
+  const gen = await getGenerationDetail(generationIdOrName);
+  const details = await Promise.all(
+    gen.pokemon_species.map(species => getPokemonFormatted(species.name))
+  );
+  return details;
 }
 
 export async function getPokemonsByType(typeName: string): Promise<Pokemon[]> {
@@ -147,15 +185,6 @@ export async function getPokemonsByType(typeName: string): Promise<Pokemon[]> {
   const details = await Promise.all(names.map(n => getPokemonData(n)));
   return details.map(formatPokemonData);
 }
-
-export default {
-  getPokemonList,
-  getPokemonData,
-  searchPokemon,
-  getPokemonSpecies,
-  getTypeRelations,
-};
-
 
 export const getPokemonEvolutionChain = async (
   pokemonId: number

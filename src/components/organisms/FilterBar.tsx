@@ -12,6 +12,9 @@ interface FilterBarProps {
   selectedTypes: string[];
   toggleType: (type: string) => void;
   onReset: () => void;
+  generationOption: string[];
+  selectedGeneration: string;
+  setSelectedGeneration: (value: string) => void;
 }
 
 const FilterBar: React.FC<FilterBarProps> = ({
@@ -21,6 +24,9 @@ const FilterBar: React.FC<FilterBarProps> = ({
   selectedTypes,
   toggleType,
   onReset,
+  generationOption,
+  selectedGeneration,
+  setSelectedGeneration,
 }) => {
   const { t } = useTranslation();
 
@@ -40,6 +46,21 @@ const FilterBar: React.FC<FilterBarProps> = ({
           <X className="w-4 h-4" />
           {t("filters.reset")}
         </Button>
+        <div className="flex items-center gap-2">
+          <label className="text-gray-300">{t("filters.generation")}:</label>
+          <select
+            value={selectedGeneration}
+            onChange={e => setSelectedGeneration(e.target.value)}
+            className="px-4 py-2 rounded border border-gray-600 bg-gray-800 text-white focus:outline-none"
+          >
+            <option value="">{t("filters.allGenerations")}</option>
+            {generationOption.map(gen => (
+              <option key={gen} value={gen}>
+                {t(`generations.${gen}`)}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <MultiSelectFilter
         options={types}

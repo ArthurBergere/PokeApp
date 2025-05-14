@@ -58,7 +58,9 @@
     "dragon": "Dragon",
     "dark": "Ténèbres",
     "steel": "Acier",
-    "fairy": "Fée"
+    "fairy": "Fée",
+    "stellar": "Stellar",
+    "unknown": "Inconnu"
   },
   "notFound": {
     "title": "404 – Pokémon disparu !",
@@ -81,7 +83,21 @@
     "physicalInfo": "Taille & Poids",
     "previousEvolution": "Évolution précédente",
     "nextEvolution":     "Évolution suivante",
-    "noFurtherEvolution":"Aucune évolution suivante"
+    "noFurtherEvolution":"Aucune évolution suivante",
+    "noResults": "Aucun Pokémon ne correspond à votre recherche"
+  },
+
+  "generations": {
+    "generation-i": "Génération I",
+    "generation-ii": "Génération II",
+    "generation-iii": "Génération III",
+    "generation-iv": "Génération IV",
+    "generation-v": "Génération V",
+    "generation-vi": "Génération VI",
+    "generation-vii": "Génération VII",
+    "generation-viii": "Génération VIII",
+    "generation-ix": "Génération IX"
+
   },
   "loading": "Chargement...",
   "errors": {
@@ -89,7 +105,9 @@
   },
   "filters": {
     "type": "Filtrer par type",
-    "reset": "Effacer"
+    "reset": "Effacer",
+    "generation": "Génération",
+    "allGenerations": "Toutes les générations"
   },
   "home": {
     "hero": {

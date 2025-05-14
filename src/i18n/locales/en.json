@@ -105,6 +105,7 @@
   },
   "filters": {
     "type": "Filter by Type",
+     "typeFilters": "Pokémon Types",
     "reset": "Reset",
     "generation": "Generation",
     "allGenerations": "All generations"

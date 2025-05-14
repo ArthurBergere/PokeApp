@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import Button from "@/components/atoms/Button";
 import SearchBar from "@/components/molecules/SearchBar";
 import MultiSelectFilter from "../molecules/MultiSelect";
-import { X } from "lucide-react";
+import Dropdown from "../molecules/Dropdown";
+import { X, Filter } from "lucide-react";
 
 interface FilterBarProps {
   searchTerm: string;
@@ -29,45 +30,60 @@ const FilterBar: React.FC<FilterBarProps> = ({
   setSelectedGeneration,
 }) => {
   const { t } = useTranslation();
+  const hasActiveFilters = searchTerm || selectedTypes.length > 0 || selectedGeneration;
 
   return (
-    <div className="space-y-6 mb-8">
-      <div className="flex flex-col md:flex-row items-center gap-4">
-        <SearchBar
-          value={searchTerm}
-          onChange={setSearchTerm}
-          placeholder={t("form.search")!}
-        />
-        <Button
-          variant="outline"
-          onClick={onReset}
-          className="flex items-center gap-2"
-        >
-          <X className="w-4 h-4" />
-          {t("filters.reset")}
-        </Button>
-        <div className="flex items-center gap-2">
-          <label className="text-gray-300">{t("filters.generation")}:</label>
-          <select
-            value={selectedGeneration}
-            onChange={e => setSelectedGeneration(e.target.value)}
-            className="px-4 py-2 rounded border border-gray-600 bg-gray-800 text-white focus:outline-none"
-          >
-            <option value="">{t("filters.allGenerations")}</option>
-            {generationOption.map(gen => (
-              <option key={gen} value={gen}>
-                {t(`generations.${gen}`)}
-              </option>
-            ))}
-          </select>
+    <div className="bg-gray-850 rounded-lg border border-gray-700 p-4 shadow-md mb-8">
+      <div className="space-y-5">
+        {/* Search and Filters Row */}
+        <div className="flex flex-col lg:flex-row gap-3 lg:items-end">
+          <div className="flex-1">
+            <SearchBar
+              value={searchTerm}
+              onChange={setSearchTerm}
+              placeholder={t("form.search")!}
+              className="w-full"
+            />
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+            <Dropdown
+              options={generationOption}
+              value={selectedGeneration}
+              onChange={setSelectedGeneration}
+              defaultLabel={t("filters.allGenerations")}
+              labelFormatter={(gen) => t(`generations.${gen}`)}
+              label={t("filters.generation")}
+              className="w-full sm:w-auto"
+            />
+            
+            {hasActiveFilters && (
+              <Button
+                variant="outline"
+                onClick={onReset}
+                className="flex items-center justify-center gap-2 sm:self-end"
+              >
+                <X className="w-4 h-4" />
+                <span className="whitespace-nowrap">{t("filters.reset")}</span>
+              </Button>
+            )}
+          </div>
+        </div>
+        
+        {/* Types Filter Section */}
+        <div className="pt-1">
+          <div className="flex items-center gap-2 mb-2">
+            <Filter className="w-4 h-4 text-blue-400" />
+            <h3 className="font-medium text-gray-200">{t("filters.typeFilters")}</h3>
+          </div>
+          <MultiSelectFilter
+            options={types}
+            selected={selectedTypes}
+            toggle={toggleType}
+            labelMap={(type) => t(`types.${type}`)}
+          />
         </div>
       </div>
-      <MultiSelectFilter
-        options={types}
-        selected={selectedTypes}
-        toggle={toggleType}
-        labelMap={(type) => t(`types.${type}`)}
-      />
     </div>
   );
 };

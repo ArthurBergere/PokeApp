@@ -1,34 +1,29 @@
-import React, { ReactNode } from "react";
-import clsx from "clsx";
-import Text from "../atoms/Text";
+import React from 'react';
 
 interface InfoBlockProps {
-    title: string;
-    children: ReactNode;
-    className?: string;
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+  icon?: React.ReactNode;
 }
 
-const InfoBlock: React.FC<InfoBlockProps> = ({ title, children, className }) => {
-    return (
-        <div
-            className={clsx(
-                "bg-gray-800 border border-gray-700 rounded-lg overflow-hidden",
-                className
-            )}
-        >
-            {/* Header du bloc */}
-            <div className="bg-gray-700 px-4 py-2 border-b border-gray-600">
-                <Text variant="h3" size="lg" className="text-white">
-                    {title}
-                </Text>
-            </div>
-
-            {/* Contenu */}
-            <div className="p-4 text-white">
-                {children}
-            </div>
-        </div>
-    );
+const InfoBlock: React.FC<InfoBlockProps> = ({
+  title,
+  children,
+  className = '',
+  icon,
+}) => {
+  return (
+    <div className={`bg-gray-800 rounded-lg border border-gray-700 shadow-md overflow-hidden ${className}`}>
+      <div className="px-4 py-3 bg-gray-750 border-b border-gray-700 flex items-center gap-2">
+        {icon && <div className="text-blue-400">{icon}</div>}
+        <h3 className="font-medium text-white">{title}</h3>
+      </div>
+      <div className="p-4">
+        {children}
+      </div>
+    </div>
+  );
 };
 
 export default InfoBlock;
